@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "665439040183",
+    "project_id": "test-deltasoft",
+    "storage_bucket": "test-deltasoft.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:665439040183:android:7529c65b3ca326b1b15332",
+        "android_client_info": {
+          "package_name": "com.example.my_test_remote_config"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "665439040183-a0mfb2q5p6erff172jlirud7ij50vl0o.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDlm7k5oKGELZm8LKkaX4nVmysGnoKbRCI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "665439040183-a0mfb2q5p6erff172jlirud7ij50vl0o.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
