@@ -3,6 +3,7 @@ import 'package:firebase_remote_config/firebase_remote_config.dart';
 import 'package:flutter/material.dart';
 import 'package:my_test_remote_config/stop_page.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:flutter_sim_country_code/flutter_sim_country_code.dart';
 
 import 'home_page.dart';
 
@@ -64,7 +65,7 @@ class _MyAppState extends State<MyApp> {
       ),
       home: FutureBuilder(
         builder: (context, AsyncSnapshot<FirebaseRemoteConfig>snapshot) {
-          if (path.isEmpty ){
+          if (path.isNotEmpty ){
             return DummyScreen();
           }else{
             return MyHomePage(title: '${path}');

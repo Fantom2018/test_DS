@@ -6,12 +6,7 @@ import 'package:webview_flutter/webview_flutter.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({Key? key, required this.title}) : super(key: key);
-
-
   final String title;
-
-
-
 
   @override
   State<MyHomePage> createState() => _MyHomePageState();
@@ -26,12 +21,7 @@ class _MyHomePageState extends State<MyHomePage> {
   void initState () {
     super.initState();
     var prefs = _prefs;
-
   }
-
-
-
-
   @override
   Widget build(BuildContext context) {
     //ada() => remoteConfig.getString('myurl');

@@ -13,9 +13,11 @@ class _DummyScreenState extends State<DummyScreen> {
     return Scaffold(
       body: Center(
         child: Container(
+
           width: double.infinity,
           height: 200,
           color: Colors.red,
+          child: Center(child: Text('Заглушка', style: TextStyle(fontSize: 30))),
         ),
       ),
     );
