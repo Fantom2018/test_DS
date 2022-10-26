@@ -1,10 +1,13 @@
+
+
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_remote_config/firebase_remote_config.dart';
 import 'package:flutter/material.dart';
+import 'package:my_test_remote_config/controllers/check_controller.dart';
 import 'package:my_test_remote_config/stop_page.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:flutter_sim_country_code/flutter_sim_country_code.dart';
 
+import 'check_page.dart';
 import 'home_page.dart';
 
 
@@ -25,21 +28,42 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
+  CheckPage checkPage = CheckPage();
   // This widget is the root of your application.
   final Future<SharedPreferences> _preferences = SharedPreferences.getInstance();
+  // *************
   final remoteConfig = FirebaseRemoteConfig.instance;
+  // ************
+  CheckController checkController = CheckController();
+/*  DeviceInfoPlugin deviceInfo = DeviceInfoPlugin();
+  AndroidDeviceInfo? androidDeviceInfo;
+  var device = DeviceInfoPlugin();
+  Future<AndroidDeviceInfo> getInfo()async{
+    return await deviceInfo.androidInfo;
+  }
+  Future  Device ()async{
+    if(Platform.isAndroid){
+      var androidInfo = await device.androidInfo;
+      return androidInfo.brand;
+    }
+
+  }*/
 
 
+  late String brand;
   late String path;
   late String path2;
+
 
 
 
   @override
   void initState () {
     super.initState();
+    //print('${androidDeviceInfo?.brand}');
     remoteConfig.setDefaults(const {
       "path": "",
+
     });
     path= remoteConfig.getString("myurl") ;
 
@@ -51,27 +75,29 @@ class _MyAppState extends State<MyApp> {
       ));
       await remoteConfig.ensureInitialized();
       await remoteConfig.fetchAndActivate();
+
       print(remoteConfig.getString(""));
       print(remoteConfig.getString("myurl"));
     });
   }
   @override
   Widget build(BuildContext context) {
+
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: FutureBuilder(
-        builder: (context, AsyncSnapshot<FirebaseRemoteConfig>snapshot) {
-          if (path.isNotEmpty ){
-            return DummyScreen();
-          }else{
-            return MyHomePage(title: '${path}');
+/*      home: FutureBuilder(
+
+        builder: (context, checkController) {
+          if{
+            checkController.connectionState;
           }
         }),
-      );/*const MyHomePage(title: 'Flutter test Home Page')*/
+      );*/
+    home: const MyHomePage(title: 'Flutter test Home Page'));
     
   }
 }
