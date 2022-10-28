@@ -12,6 +12,7 @@ class CheckPage extends StatefulWidget {
   State<CheckPage> createState() => _CheckPageState();
 }
 
+
 class _CheckPageState extends State<CheckPage> {
   final remoteConfig = FirebaseRemoteConfig.instance;
   late String path;
