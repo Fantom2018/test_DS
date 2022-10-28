@@ -1,4 +1,5 @@
 import 'package:device_info_plus/device_info_plus.dart';
+import 'package:firebase_remote_config/firebase_remote_config.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_sim_country_code/flutter_sim_country_code.dart';
@@ -12,6 +13,31 @@ class CheckPage extends StatefulWidget {
 }
 
 class _CheckPageState extends State<CheckPage> {
+  final remoteConfig = FirebaseRemoteConfig.instance;
+  late String path;
+  @override
+  void initState () {
+    super.initState();
+    //print('${androidDeviceInfo?.brand}');
+    remoteConfig.setDefaults(const {
+      "path": "",
+
+    });
+    path= remoteConfig.getString("myurl") ;
+
+    WidgetsBinding.instance.addPostFrameCallback((_) async{
+
+      await remoteConfig.setConfigSettings(RemoteConfigSettings(
+        fetchTimeout: const Duration(seconds: 10),
+        minimumFetchInterval: Duration(seconds: 10),
+      ));
+      await remoteConfig.ensureInitialized();
+      await remoteConfig.fetchAndActivate();
+
+      print(remoteConfig.getString(""));
+      print(remoteConfig.getString("myurl"));
+    });
+  }
 
   static getURL() async{
     SharedPreferences sharedPreferences = await SharedPreferences.getInstance();

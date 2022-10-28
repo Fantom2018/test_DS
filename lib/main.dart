@@ -51,35 +51,35 @@ class _MyAppState extends State<MyApp> {
 
 
   late String brand;
-  late String path;
+  //late String path;
   late String path2;
 
 
 
 
-  @override
-  void initState () {
-    super.initState();
-    //print('${androidDeviceInfo?.brand}');
-    remoteConfig.setDefaults(const {
-      "path": "",
-
-    });
-    path= remoteConfig.getString("myurl") ;
-
-    WidgetsBinding.instance.addPostFrameCallback((_) async{
-
-      await remoteConfig.setConfigSettings(RemoteConfigSettings(
-        fetchTimeout: const Duration(seconds: 10),
-        minimumFetchInterval: Duration(seconds: 10),
-      ));
-      await remoteConfig.ensureInitialized();
-      await remoteConfig.fetchAndActivate();
-
-      print(remoteConfig.getString(""));
-      print(remoteConfig.getString("myurl"));
-    });
-  }
+  // @override
+  // void initState () {
+  //   super.initState();
+  //   //print('${androidDeviceInfo?.brand}');
+  //   remoteConfig.setDefaults(const {
+  //     "path": "",
+  //
+  //   });
+  //   path= remoteConfig.getString("myurl") ;
+  //
+  //   WidgetsBinding.instance.addPostFrameCallback((_) async{
+  //
+  //     await remoteConfig.setConfigSettings(RemoteConfigSettings(
+  //       fetchTimeout: const Duration(seconds: 10),
+  //       minimumFetchInterval: Duration(seconds: 10),
+  //     ));
+  //     await remoteConfig.ensureInitialized();
+  //     await remoteConfig.fetchAndActivate();
+  //
+  //     print(remoteConfig.getString(""));
+  //     print(remoteConfig.getString("myurl"));
+  //   });
+  // }
   @override
   Widget build(BuildContext context) {
 
