@@ -4,7 +4,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_remote_config/firebase_remote_config.dart';
 import 'package:flutter/material.dart';
 import 'package:my_test_remote_config/controllers/check_controller.dart';
-import 'package:my_test_remote_config/stop_page.dart';
+import 'package:my_test_remote_config/dummy_page.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'check_page.dart';
@@ -28,7 +28,7 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  CheckPage checkPage = CheckPage();
+  CheckPage checkPage = const CheckPage();
   // This widget is the root of your application.
   final Future<SharedPreferences> _preferences = SharedPreferences.getInstance();
   // *************
@@ -50,9 +50,7 @@ class _MyAppState extends State<MyApp> {
   }*/
 
 
-  late String brand;
-  //late String path;
-  late String path2;
+
 
 
 
@@ -83,21 +81,8 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
 
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-/*      home: FutureBuilder(
+    return const CheckPage();
 
-        builder: (context, checkController) {
-          if{
-            checkController.connectionState;
-          }
-        }),
-      );*/
-    home: const MyHomePage(title: 'Flutter test Home Page'));
     
   }
 }
